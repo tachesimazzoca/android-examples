@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Fragment</string>
+    <string name="label_activity_one_pane">One-Pane</string>
+    <string name="label_activity_two_pane">Two-Pane</string>
+
+</resources>
