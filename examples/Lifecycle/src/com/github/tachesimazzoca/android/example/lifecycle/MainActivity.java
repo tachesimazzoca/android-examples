@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onRestart() {
-        super.onStart();
+        super.onRestart();
         appendLifecycleLog("onRestart");
     }
 
