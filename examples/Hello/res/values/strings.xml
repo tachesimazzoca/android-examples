@@ -2,10 +2,10 @@
 <resources>
     <string name="app_name">Hello</string>
 
-    <string name="message">Message</string>
+    <string name="sending_message">Sending Message</string>
     <string name="enter_a_message">Enter a message</string>
     <string name="send">Send</string>
-    <string name="done">Done</string>
+    <string name="ok">OK</string>
 
     <string name="main_activity">MainActivity</string>
     <string name="sub_activity">SubActivity</string>

@@ -20,7 +20,7 @@ public class SubActivity extends Activity {
         TextView textView = (TextView) findViewById(R.id.text_message);
         textView.setText(message);
 
-        Button button = (Button) findViewById(R.id.button_done);
+        Button button = (Button) findViewById(R.id.button_ok);
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
