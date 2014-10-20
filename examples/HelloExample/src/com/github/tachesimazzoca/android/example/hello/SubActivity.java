@@ -17,10 +17,10 @@ public class SubActivity extends Activity {
         // Receives the message via Intent.
         String message = getIntent().getStringExtra(Intent.EXTRA_TEXT);
 
-        TextView textView = (TextView) findViewById(R.id.text_message);
+        TextView textView = (TextView) findViewById(R.id.message_text_view);
         textView.setText(message);
 
-        Button button = (Button) findViewById(R.id.button_ok);
+        Button button = (Button) findViewById(R.id.ok_button);
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

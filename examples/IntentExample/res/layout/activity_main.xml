@@ -9,7 +9,7 @@
         android:orientation="horizontal" >
 
         <EditText
-            android:id="@+id/edit_url"
+            android:id="@+id/url_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -29,7 +29,7 @@
         android:orientation="horizontal" >
 
         <EditText
-            android:id="@+id/edit_geo"
+            android:id="@+id/geo_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -48,7 +48,7 @@
         android:orientation="horizontal" >
 
         <EditText
-            android:id="@+id/edit_plain_text"
+            android:id="@+id/plain_text_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

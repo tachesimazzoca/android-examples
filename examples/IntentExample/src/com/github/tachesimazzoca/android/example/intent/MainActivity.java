@@ -38,14 +38,14 @@ public class MainActivity extends Activity {
     }
 
     public void sendUrl(View view) {
-        String url = ((EditText) findViewById(R.id.edit_url)).getText().toString();
+        String url = ((EditText) findViewById(R.id.url_edit_text)).getText().toString();
         if (!url.isEmpty()) {
             interactByURIString(url);
         }
     }
 
     public void sendGeo(View view) throws UnsupportedEncodingException {
-        String url = ((EditText) findViewById(R.id.edit_geo)).getText().toString();
+        String url = ((EditText) findViewById(R.id.geo_edit_text)).getText().toString();
         if (!url.isEmpty()) {
             interactByURIString("geo:0,0?q="
                     + URLEncoder.encode(url, Charset.defaultCharset().name()));
@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
     }
 
     public void sendPlainText(View view) {
-        String txt = ((EditText) findViewById(R.id.edit_plain_text)).getText().toString();
+        String txt = ((EditText) findViewById(R.id.plain_text_edit_text)).getText().toString();
         if (!txt.isEmpty()) {
             Intent txtIntent = new Intent(Intent.ACTION_SEND);
             txtIntent.putExtra(Intent.EXTRA_TEXT, txt);

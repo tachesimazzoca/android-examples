@@ -14,7 +14,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = (Button) findViewById(R.id.button_send);
+        Button button = (Button) findViewById(R.id.send_button);
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
 
     private void sendMessage() {
         Intent intent = new Intent(this, SubActivity.class);
-        EditText editText = (EditText) findViewById(R.id.edit_message);
+        EditText editText = (EditText) findViewById(R.id.message_edit_text);
         String message = editText.getText().toString();
         intent.putExtra(Intent.EXTRA_TEXT, message);
         startActivity(intent);
