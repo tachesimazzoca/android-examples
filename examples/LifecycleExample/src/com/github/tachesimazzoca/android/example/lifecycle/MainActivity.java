@@ -1,12 +1,11 @@
 package com.github.tachesimazzoca.android.example.lifecycle;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.util.Log;
-import android.view.Menu;
-import android.widget.TextView;
-
 import java.util.ArrayList;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
     private static final String TAG = (new Throwable().getStackTrace()[0].getClassName());
@@ -25,36 +24,28 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         restoreLifecycleLog(savedInstanceState);
-        appendLifecycleLog("onRestoreInstanceState");
+        appendLifecycleLog("-- onRestoreInstanceState --");
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        appendLifecycleLog("onSaveInstanceState");
+        appendLifecycleLog("-- onSaveInstanceState --");
         savedInstanceState.putStringArrayList(STATE_LIFECYCLE_LOG, mLifecycleLog);
         super.onSaveInstanceState(savedInstanceState);
     }
 
     private void restoreLifecycleLog(Bundle savedInstanceState) {
         mLifecycleLog.clear();
-        if (savedInstanceState != null) {
-            ArrayList<String> lines = savedInstanceState.getStringArrayList(STATE_LIFECYCLE_LOG);
-            if (lines != null) {
-                for (String line : lines) {
-                    mLifecycleLog.add(new String(line));
-                }
-            }
-        }
+        if (savedInstanceState == null)
+            return;
+        ArrayList<String> lines = savedInstanceState.getStringArrayList(STATE_LIFECYCLE_LOG);
+        if (lines == null)
+            return;
+        for (String line : lines)
+            mLifecycleLog.add(line);
     }
 
     private void appendLifecycleLog(String line) {
@@ -68,7 +59,7 @@ public class MainActivity extends Activity {
             sb.append(mLifecycleLog.get(i));
             sb.append(System.getProperty("line.separator"));
         }
-        TextView logTextView = (TextView) findViewById(R.id.lifecycle_log_text);
+        TextView logTextView = (TextView) findViewById(R.id.log_text_view);
         if (logTextView != null)
             logTextView.setText(sb.toString());
     }
