@@ -6,26 +6,25 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
-import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.List;
 
 public class MainActivity extends Activity {
+    private final static int REQUEST_CODE_EDIT_MESSAGE = 1;
+
+    private TextView mMessageTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        mMessageTextView = (TextView) findViewById(R.id.message_text_view);
     }
 
     private void interactByURIString(String uriString) {
@@ -48,7 +47,8 @@ public class MainActivity extends Activity {
     public void sendGeo(View view) throws UnsupportedEncodingException {
         String url = ((EditText) findViewById(R.id.edit_geo)).getText().toString();
         if (!url.isEmpty()) {
-            interactByURIString("geo:0,0?q=" + URLEncoder.encode(url, Charset.defaultCharset().name()));
+            interactByURIString("geo:0,0?q="
+                    + URLEncoder.encode(url, Charset.defaultCharset().name()));
         }
     }
 
@@ -58,10 +58,23 @@ public class MainActivity extends Activity {
             Intent txtIntent = new Intent(Intent.ACTION_SEND);
             txtIntent.putExtra(Intent.EXTRA_TEXT, txt);
             txtIntent.setType("text/plain");
-            String title = getResources().getString(R.string.chooser_share_text);
+            String title = getResources().getString(R.string.share_text_to);
             Intent chooser = Intent.createChooser(txtIntent, title);
             if (txtIntent.resolveActivity(getPackageManager()) != null) {
                 startActivity(chooser);
+            }
+        }
+    }
+
+    public void editMessage(View view) {
+        startActivityForResult(new Intent(this, SubActivity.class), REQUEST_CODE_EDIT_MESSAGE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_EDIT_MESSAGE) {
+            if (resultCode == RESULT_OK) {
+                mMessageTextView.setText(data.getStringExtra(Intent.EXTRA_TEXT));
             }
         }
     }

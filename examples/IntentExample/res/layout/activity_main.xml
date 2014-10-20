@@ -13,14 +13,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/hint_url"
+            android:hint="@string/enter_an_url"
             android:inputType="textUri" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="sendUrl"
-            android:text="@string/button_send" />
+            android:text="@string/send" />
     </LinearLayout>
 
     <LinearLayout
@@ -33,13 +33,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/hint_geo" />
+            android:hint="@string/enter_a_geo" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="sendGeo"
-            android:text="@string/button_send" />
+            android:text="@string/send" />
     </LinearLayout>
 
     <LinearLayout
@@ -52,13 +52,33 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/hint_plain_text" />
+            android:hint="@string/enter_a_text" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="sendPlainText"
-            android:text="@string/button_send" />
+            android:text="@string/send" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/message_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:padding="8dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="editMessage"
+            android:text="@string/edit" />
     </LinearLayout>
 
 </LinearLayout>

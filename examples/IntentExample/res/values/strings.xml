@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IntentExample</string>
+
+    <string name="send">Send</string>
+    <string name="edit">Edit</string>
+    <string name="enter_an_url">Enter an URL</string>
+    <string name="enter_a_geo">Enter a Geo</string>
+    <string name="enter_a_text">Enter a Text</string>
+    <string name="enter_a_message">Enter a Message</string>
+    <string name="share_text_to">Share text to</string>
+
+    <string name="main_activity">Main Activity</string>
+    <string name="sub_activity">Sub Activity</string>
+</resources>
