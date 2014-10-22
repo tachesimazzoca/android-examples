@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FragmentExample</string>
+    <string name="one_pane">One Pane</string>
+    <string name="two_pane">Two Pane</string>
+
+</resources>

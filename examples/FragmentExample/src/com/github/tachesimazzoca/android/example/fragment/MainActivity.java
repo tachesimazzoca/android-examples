@@ -8,19 +8,20 @@ import android.view.MenuItem;
 
 public class MainActivity extends FragmentActivity implements
         ContentListFragment.ItemSelectedListener {
-    private enum LayoutType {
-        ONE_PANE {
-            boolean isFrameLayout() {
-                return true;
-            }
-        },
-        TWO_PANE {
-            boolean isFrameLayout() {
-                return false;
-            }
-        };
 
-        abstract boolean isFrameLayout();
+    private enum LayoutType {
+        ONE_PANE(false),
+        TWO_PANE(true);
+
+        private boolean frameLayout;
+        
+        private LayoutType(boolean frameLayout) {
+            this.frameLayout = frameLayout;
+        }
+
+        public boolean isFrameLayout() {
+            return frameLayout;
+        }
     }
 
     private LayoutType layoutType;
@@ -29,13 +30,13 @@ public class MainActivity extends FragmentActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (isFrameLayout()) {
-            if (savedInstanceState == null) {
-                ContentListFragment contentListFrag = new ContentListFragment();
-                contentListFrag.setArguments(getIntent().getExtras());
-                getSupportFragmentManager().beginTransaction()
-                        .add(R.id.fragment_container, contentListFrag).commit();
-            }
+        if (savedInstanceState != null)
+            return;
+        if (!isFrameLayout()) {
+            ContentListFragment contentListFrag = new ContentListFragment();
+            contentListFrag.setArguments(getIntent().getExtras());
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container, contentListFrag).commit();
         }
     }
 
@@ -48,19 +49,19 @@ public class MainActivity extends FragmentActivity implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_one_pane:
-                startActivity(new Intent(this, OnePaneActivity.class));
-                return true;
-            case R.id.action_two_pane:
-                startActivity(new Intent(this, TwoPaneActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        case R.id.action_one_pane:
+            startActivity(new Intent(this, OnePaneActivity.class));
+            return true;
+        case R.id.action_two_pane:
+            startActivity(new Intent(this, TwoPaneActivity.class));
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
         }
     }
 
     public void onItemSelected(int position) {
-        if (isFrameLayout()) {
+        if (!isFrameLayout()) {
             ContentFragment contentFrag = new ContentFragment();
             Bundle args = new Bundle();
             args.putInt(ContentFragment.ARG_POSITION, position);
@@ -77,8 +78,8 @@ public class MainActivity extends FragmentActivity implements
 
     private boolean isFrameLayout() {
         if (layoutType == null) {
-            layoutType = (findViewById(R.id.fragment_container) != null) ? LayoutType.ONE_PANE
-                    : LayoutType.TWO_PANE;
+            layoutType = (findViewById(R.id.fragment_container) != null)
+                    ? LayoutType.ONE_PANE : LayoutType.TWO_PANE;
         }
         return layoutType.isFrameLayout();
     }

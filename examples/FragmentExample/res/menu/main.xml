@@ -1,12 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
     <item
         android:id="@+id/action_one_pane"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/label_activity_one_pane"/>
+        android:title="@string/one_pane"/>
     <item
         android:id="@+id/action_two_pane"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/label_activity_two_pane"/>
+        android:title="@string/two_pane"/>
+
 </menu>

@@ -17,7 +17,7 @@ public class OnePaneActivity extends FragmentActivity
                     .commit();
         }
     }
-    
+
     public void onItemSelected(int position) {
         ContentFragment contentFrag = new ContentFragment();
         Bundle args = new Bundle();

@@ -24,16 +24,16 @@
         </activity>
         <activity
             android:name="com.github.tachesimazzoca.android.example.fragment.OnePaneActivity"
-            android:label="@string/label_activity_one_pane"
-            android:parentActivityName="com.github.tachesimazzoca.android.example.fragment.MainActivity">
+            android:label="@string/one_pane"
+            android:parentActivityName="com.github.tachesimazzoca.android.example.fragment.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.github.tachesimazzoca.android.example.fragment.MainActivity" />
         </activity>
         <activity
             android:name="com.github.tachesimazzoca.android.example.fragment.TwoPaneActivity"
-            android:label="@string/label_activity_two_pane"
-            android:parentActivityName="com.github.tachesimazzoca.android.example.fragment.MainActivity">
+            android:label="@string/two_pane"
+            android:parentActivityName="com.github.tachesimazzoca.android.example.fragment.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.github.tachesimazzoca.android.example.fragment.MainActivity" />
