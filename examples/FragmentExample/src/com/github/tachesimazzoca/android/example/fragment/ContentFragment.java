@@ -1,7 +1,7 @@
 package com.github.tachesimazzoca.android.example.fragment;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,9 @@ import android.widget.TextView;
 public class ContentFragment extends Fragment {
     public static final String ARG_POSITION = "position";
     private static final int POSITION_NONE = -1;
+
     private int mPosition = POSITION_NONE;
+    private TextView mTextView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -18,19 +20,20 @@ public class ContentFragment extends Fragment {
         if (savedInstanceState != null) {
             mPosition = savedInstanceState.getInt(ARG_POSITION);
         }
-        return inflater.inflate(R.layout.fragment_content, container, false);
+        View view = inflater.inflate(R.layout.fragment_content, container, false);
+        mTextView = (TextView) view.findViewById(R.id.content_detail_text_view);
+        return view;
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         Bundle args = getArguments();
         if (args != null) {
             updateDetailView(args.getInt(ARG_POSITION));
         } else {
-            if (mPosition != POSITION_NONE) {
+            if (mPosition != POSITION_NONE)
                 updateDetailView(mPosition);
-            }
         }
     }
 
@@ -41,10 +44,7 @@ public class ContentFragment extends Fragment {
     }
 
     public void updateDetailView(int position) {
-        mPosition = position;
-        TextView view = (TextView) getActivity()
-                .findViewById(R.id.content_detail_view);
-        Content content = ContentsService.getContent(position);
-        view.setText(content.body);
+        Content content = ContentsRepository.getContent(position);
+        mTextView.setText(content.body);
     }
 }

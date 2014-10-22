@@ -1,12 +1,12 @@
 package com.github.tachesimazzoca.android.example.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends FragmentActivity implements
+public class MainActivity extends Activity implements
         ContentListFragment.ItemSelectedListener {
 
     private enum LayoutType {
@@ -14,7 +14,7 @@ public class MainActivity extends FragmentActivity implements
         TWO_PANE(true);
 
         private boolean frameLayout;
-        
+
         private LayoutType(boolean frameLayout) {
             this.frameLayout = frameLayout;
         }
@@ -29,13 +29,17 @@ public class MainActivity extends FragmentActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
+        layoutType = (findViewById(R.id.fragment_container) != null)
+                ? LayoutType.ONE_PANE : LayoutType.TWO_PANE;
+
         if (savedInstanceState != null)
             return;
-        if (!isFrameLayout()) {
+        if (!layoutType.isFrameLayout()) {
             ContentListFragment contentListFrag = new ContentListFragment();
-            contentListFrag.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction()
+            getFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, contentListFrag).commit();
         }
     }
@@ -61,26 +65,18 @@ public class MainActivity extends FragmentActivity implements
     }
 
     public void onItemSelected(int position) {
-        if (!isFrameLayout()) {
+        if (!layoutType.isFrameLayout()) {
             ContentFragment contentFrag = new ContentFragment();
             Bundle args = new Bundle();
             args.putInt(ContentFragment.ARG_POSITION, position);
             contentFrag.setArguments(args);
-            getSupportFragmentManager().beginTransaction()
+            getFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, contentFrag)
                     .addToBackStack(null).commit();
         } else {
-            ContentFragment contentFrag = (ContentFragment) getSupportFragmentManager()
+            ContentFragment contentFrag = (ContentFragment) getFragmentManager()
                     .findFragmentById(R.id.content_fragment);
             contentFrag.updateDetailView(position);
         }
-    }
-
-    private boolean isFrameLayout() {
-        if (layoutType == null) {
-            layoutType = (findViewById(R.id.fragment_container) != null)
-                    ? LayoutType.ONE_PANE : LayoutType.TWO_PANE;
-        }
-        return layoutType.isFrameLayout();
     }
 }

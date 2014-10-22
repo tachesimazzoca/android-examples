@@ -1,9 +1,9 @@
 package com.github.tachesimazzoca.android.example.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
-public class OnePaneActivity extends FragmentActivity
+public class OnePaneActivity extends Activity
         implements ContentListFragment.ItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -12,7 +12,7 @@ public class OnePaneActivity extends FragmentActivity
         if (savedInstanceState == null) {
             ContentListFragment contentListFrag = new ContentListFragment();
             contentListFrag.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction()
+            getFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, contentListFrag)
                     .commit();
         }
@@ -23,7 +23,7 @@ public class OnePaneActivity extends FragmentActivity
         Bundle args = new Bundle();
         args.putInt(ContentFragment.ARG_POSITION, position);
         contentFrag.setArguments(args);
-        getSupportFragmentManager().beginTransaction()
+        getFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, contentFrag)
                 .addToBackStack(null)
                 .commit();

@@ -3,7 +3,7 @@ package com.github.tachesimazzoca.android.example.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Build;
-import android.support.v4.app.ListFragment;
+import android.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -23,13 +23,13 @@ public class ContentListFragment extends ListFragment {
                 android.R.layout.simple_list_item_activated_1 :
                 android.R.layout.simple_list_item_1;
 
-        String[] items = ContentsService.getTitles();
+        String[] items = ContentsRepository.getTitles();
         setListAdapter(new ArrayAdapter<String>(getActivity(), layout, items));
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         if (getFragmentManager().findFragmentById(R.id.content_fragment) != null) {
             getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         }
@@ -38,7 +38,6 @@ public class ContentListFragment extends ListFragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
         try {
             mCallback = (ItemSelectedListener) activity;
         } catch (ClassCastException e) {

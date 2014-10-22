@@ -3,7 +3,7 @@ package com.github.tachesimazzoca.android.example.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContentsService {
+public class ContentsRepository {
     @SuppressWarnings("serial")
     private static final ArrayList<Content> records = new ArrayList<Content>() {
         {
