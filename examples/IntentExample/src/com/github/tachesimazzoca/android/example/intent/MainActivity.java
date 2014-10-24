@@ -3,8 +3,6 @@ package com.github.tachesimazzoca.android.example.intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.view.View;
 import android.widget.EditText;
@@ -12,7 +10,6 @@ import android.widget.TextView;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
-import java.util.List;
 
 public class MainActivity extends Activity {
     private final static int REQUEST_CODE_EDIT_MESSAGE = 1;
@@ -27,28 +24,24 @@ public class MainActivity extends Activity {
         mMessageTextView = (TextView) findViewById(R.id.message_text_view);
     }
 
-    private void interactByURIString(String uriString) {
-        Uri location = Uri.parse(uriString);
-        Intent uriIntent = new Intent(Intent.ACTION_VIEW, location);
-        PackageManager packageManager = getPackageManager();
-        List<ResolveInfo> activities = packageManager.queryIntentActivities(uriIntent, 0);
-        if (activities.size() > 0) {
-            startActivity(uriIntent);
+    private void safeStartActivity(Intent intent) {
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
         }
     }
 
     public void sendUrl(View view) {
         String url = ((EditText) findViewById(R.id.url_edit_text)).getText().toString();
         if (!url.isEmpty()) {
-            interactByURIString(url);
+            safeStartActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
         }
     }
 
     public void sendGeo(View view) throws UnsupportedEncodingException {
         String url = ((EditText) findViewById(R.id.geo_edit_text)).getText().toString();
         if (!url.isEmpty()) {
-            interactByURIString("geo:0,0?q="
-                    + URLEncoder.encode(url, Charset.defaultCharset().name()));
+            url = "geo:0,0?q=" + URLEncoder.encode(url, Charset.defaultCharset().name());
+            safeStartActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
         }
     }
 
@@ -60,9 +53,7 @@ public class MainActivity extends Activity {
             txtIntent.setType("text/plain");
             String title = getResources().getString(R.string.share_text_to);
             Intent chooser = Intent.createChooser(txtIntent, title);
-            if (txtIntent.resolveActivity(getPackageManager()) != null) {
-                startActivity(chooser);
-            }
+            safeStartActivity(chooser);
         }
     }
 
