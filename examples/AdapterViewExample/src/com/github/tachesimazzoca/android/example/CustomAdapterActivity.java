@@ -5,22 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
+import android.widget.GridView;
 import android.widget.Toast;
 
-public class SimpleAdapterActivity extends Activity {
+public class CustomAdapterActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simple_adapter);
+        setContentView(R.layout.activity_custom_adapter);
         ContentRepository repo = ContentRepository.newInstance();
-        ListView lv = (ListView) findViewById(R.id.simple_adapter_list_view);
-        lv.setAdapter(new SimpleAdapter(this, repo.getItems(),
-                android.R.layout.simple_list_item_2,
-                new String[] { ContentRepository.KEY_TITLE, ContentRepository.KEY_DESCRIPTION },
-                new int[] { android.R.id.text1, android.R.id.text2 }));
-
+        GridView lv = (GridView) findViewById(R.id.custom_adapter_grid_view);
+        lv.setAdapter(new CustomAdapter(this, repo.getItems()));
         lv.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 toast("position:" + position);

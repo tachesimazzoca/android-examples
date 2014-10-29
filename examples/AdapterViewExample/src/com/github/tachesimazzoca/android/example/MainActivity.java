@@ -10,7 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class MainActivity extends Activity {
-    private Class<?>[] MENU_ACTIVITIES = { SimpleAdapterActivity.class };
+    private Class<?>[] MENU_ACTIVITIES = {
+            SimpleAdapterActivity.class,
+            CustomAdapterActivity.class };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
