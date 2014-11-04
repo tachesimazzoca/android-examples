@@ -1,4 +1,4 @@
-package com.github.tachesimazzoca.android.example;
+package com.github.tachesimazzoca.android.example.adapterview;
 
 import android.app.Activity;
 import android.content.Intent;

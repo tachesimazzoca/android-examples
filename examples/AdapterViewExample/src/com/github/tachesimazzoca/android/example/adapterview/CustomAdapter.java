@@ -1,4 +1,4 @@
-package com.github.tachesimazzoca.android.example;
+package com.github.tachesimazzoca.android.example.adapterview;
 
 import java.util.Map;
 import java.util.List;
