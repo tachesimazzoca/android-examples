@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AsyncTaskExample</string>
+    <string name="download_activity">DownloadActivity</string>
+    <string name="block_ui_thread">Block UI Thread</string>
+    <string name="async_download">Async Download</string>
+    <string name="editable_while_downloading">Editable while downloading</string>
+
+</resources>
