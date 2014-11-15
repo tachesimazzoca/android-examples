@@ -11,7 +11,7 @@ import android.util.Log;
 
 public class DownloadActivity extends Activity {
     private static final String TAG =
-            new Throwable().getStackTrace()[0].getClass().getSimpleName();
+            new Throwable().getStackTrace()[0].getClassName();
 
     private Button mButton;
     private TextView mTextView;
