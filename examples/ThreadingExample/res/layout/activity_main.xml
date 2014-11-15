@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/ui_thread_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Block UI thread" />
+
+    <Button
+        android:id="@+id/another_thread_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Run on another thread" />
+
+    <Button
+        android:id="@+id/post_runnable_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post Runnable on another thread" />
+
+    <TextView
+        android:id="@+id/message_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:textSize="16sp" />
+
+</LinearLayout>
