@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
 
         mMessageView = (TextView) findViewById(R.id.message_text_view);
 
-        Button uiThreadBtn = (Button) findViewById(R.id.ui_thread_button);
+        Button uiThreadBtn = (Button) findViewById(R.id.block_ui_thread_button);
         uiThreadBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,20 +32,30 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 mMessageView.setText("Waiting for the task on another thread."
+                        + " But it's going to fail.");
+                new Thread(new Runnable() {
+                    public void run() {
+                        waitFor(5000L);
+                        mMessageView.setText("This doesn't work.");
+                    }
+                }).start();
+            }
+        });
+
+        Button runOnUiThreadBtn = (Button) findViewById(R.id.run_on_ui_thread_button);
+        runOnUiThreadBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMessageView.setText("Waiting for the task on another thread."
                         + " This message will be updated via Activity#runOnUiThread.");
                 new Thread(new Runnable() {
                     public void run() {
                         waitFor(5000L);
-                        try {
-                            mMessageView.setText("This doesn't work.");
-                        } catch (Exception e) {
-                            final String msg = e.getMessage();
-                            MainActivity.this.runOnUiThread(new Runnable() {
-                                public void run() {
-                                    mMessageView.setText(msg);
-                                }
-                            });
-                        }
+                        MainActivity.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                mMessageView.setText("Posted from Activity#runOnUiThread.");
+                            }
+                        });
                     }
                 }).start();
             }
@@ -73,7 +83,7 @@ public class MainActivity extends Activity {
 
     private void waitFor(long msec) {
         try {
-            Thread.sleep(5000L);
+            Thread.sleep(msec);
         } catch (Exception e) {
             throw new Error(e);
         }
