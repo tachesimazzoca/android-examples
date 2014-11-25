@@ -25,6 +25,9 @@ public class MainActivity extends Activity {
         case R.id.menu_item_download:
             startActivity(new Intent(this, DownloadActivity.class));
             return true;
+        case R.id.menu_item_mean:
+            startActivity(new Intent(this, MeanActivity.class));
+            return true;
         default:
             return super.onOptionsItemSelected(item);
         }
