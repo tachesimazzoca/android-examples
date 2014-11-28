@@ -5,7 +5,9 @@
     <string name="send_ordered_broadcast">Send Ordered Broadcast</string>
     <string name="send_local_broadcast">Send Local Broadcast</string>
     <string name="send_blocking_broadcast">Send Blocking Broadcast</string>
-    <string name="send_sticky_broadcast">Send Sticky Broadcast</string>
     <string name="not_editable_while_receiving">Not editable while receiving</string>
+    <string name="set_sticky_broadcast">Set Sticky Broadcast</string>
+    <string name="remove_sticky_broadcast">Remove Sticky Broadcast</string>
+    <string name="battery_capacity">Battery Capacity</string>
 
 </resources>

@@ -14,7 +14,8 @@ import android.widget.ListView;
 public class MainActivity extends Activity {
     private Class<?>[] MENU_ACTIVITIES = {
             NormalBroadcastActivity.class,
-            LocalBroadcastActivity.class, };
+            LocalBroadcastActivity.class,
+            StickyBroadcastActivity.class, };
 
     private static final String TAG = "MainActivity";
 

@@ -7,6 +7,8 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
 
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -21,6 +23,7 @@
         </activity>
         <activity android:name=".NormalBroadcastActivity" />
         <activity android:name=".LocalBroadcastActivity" />
+        <activity android:name=".StickyBroadcastActivity" />
 
         <receiver
             android:name=".StaticToastReceiver"
