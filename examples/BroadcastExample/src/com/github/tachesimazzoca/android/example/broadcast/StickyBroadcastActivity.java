@@ -16,6 +16,8 @@ public class StickyBroadcastActivity extends Activity {
     private static final String INTENT_STICKY =
             "com.github.tachesimazzoca.android.example.broadcast.STICKY";
 
+    private BroadcastReceiver mReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +52,13 @@ public class StickyBroadcastActivity extends Activity {
         // methods
         // were deprecated in API level 21.
         // -----------------------------------------------------------------------------
-        Intent sticky = registerReceiver(null, new IntentFilter(INTENT_STICKY));
-        if (null != sticky) {
-            toast("Received a sticky broadcast");
-        }
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                toast("Received a sticky broadcast");
+            }
+        };
+        registerReceiver(mReceiver, new IntentFilter(INTENT_STICKY));
 
         Button setStickyBtn = (Button) findViewById(R.id.set_sticky_broadcast_button);
         setStickyBtn.setOnClickListener(new OnClickListener() {
@@ -71,6 +76,13 @@ public class StickyBroadcastActivity extends Activity {
             }
         });
         // -----------------------------------------------------------------------------
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(mReceiver);
+
+        super.onDestroy();
     }
 
     private void toast(String msg) {
