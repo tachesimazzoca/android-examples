@@ -3,35 +3,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/post_runnable_button"
+    <ListView
+        android:id="@+id/main_list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post Runnable" />
+        android:layout_height="wrap_content" >
+    </ListView>
 
-    <Button
-        android:id="@+id/send_message_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Send Message" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Editable while loading" />
-
-    <TextView
-        android:id="@+id/message_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp"
-        android:textSize="16sp" />
-    
 </LinearLayout>

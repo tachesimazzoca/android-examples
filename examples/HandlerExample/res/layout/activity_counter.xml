@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/non_thread_safe_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Non Thread Safe" />
+
+    <Button
+        android:id="@+id/count_via_handler_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Count via Handler" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Editable while loading" />
+
+    <TextView
+        android:id="@+id/count_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:textSize="16sp" />
+
+</LinearLayout>
