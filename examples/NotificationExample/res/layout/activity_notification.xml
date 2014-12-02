@@ -3,18 +3,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <Button
+    <RadioGroup
+        android:id="@+id/radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="sendNotification"
-        android:text="@string/notification" >
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/single_top_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Use itself if it's running at the top of the history." />
+
+        <RadioButton
+            android:id="@+id/task_stack_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rebuild a new task stack." />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/send_notification_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Notification" >
     </Button>
 
     <Button
+        android:id="@+id/cancel_notification_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="cancelNotification"
-        android:text="@string/cancel_notification" >
+        android:text="Cancel Notification" >
     </Button>
 
 </LinearLayout>

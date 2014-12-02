@@ -4,7 +4,5 @@
     <string name="toast">Toast</string>
     <string name="custom_toast">Custom Toast</string>
     <string name="dialog">Dialog</string>
-    <string name="notification">Notification</string>
-    <string name="cancel_notification">Cancel Notification</string>
 
 </resources>
