@@ -3,24 +3,75 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <RadioGroup
-        android:id="@+id/radio_group"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:padding="16dp" >
 
-        <RadioButton
-            android:id="@+id/single_top_radio"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Content Intent"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <RadioGroup
+            android:id="@+id/intent_radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Use itself if it's running at the top of the history." />
+            android:orientation="vertical" >
 
-        <RadioButton
-            android:id="@+id/task_stack_radio"
+            <RadioButton
+                android:id="@+id/intent_single_top_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Use itself if it&apos;s running at the top of the history." />
+
+            <RadioButton
+                android:id="@+id/intent_task_stack_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rebuild a new task stack." />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Style"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <RadioGroup
+            android:id="@+id/style_radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rebuild a new task stack." />
-    </RadioGroup>
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/style_none_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="None" />
+
+            <RadioButton
+                android:id="@+id/style_inbox_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="InboxStyle" />
+
+            <RadioButton
+                android:id="@+id/style_big_text_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BigTextStyle" />
+        </RadioGroup>
+    </LinearLayout>
 
     <Button
         android:id="@+id/send_notification_button"

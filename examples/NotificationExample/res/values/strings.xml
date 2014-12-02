@@ -1,8 +1,5 @@
 <resources>
 
     <string name="app_name">NotificationExample</string>
-    <string name="toast">Toast</string>
-    <string name="custom_toast">Custom Toast</string>
-    <string name="dialog">Dialog</string>
 
 </resources>
