@@ -1,0 +1,42 @@
+<resources>
+
+    <!-- See more: http://www.google.com/design/spec/style/color.html -->
+
+    <!-- Material.Dark (Blue Gray) -->
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">#37474F</item>
+        <item name="colorPrimaryDark">#263238</item>
+        <item name="colorAccent">@color/accent_material_dark</item>
+    </style>
+
+    <style name="AppTheme.Dark.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <!-- Material.Light (Blue Gray) -->
+    <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#78909C</item>
+        <item name="colorPrimaryDark">#546E7A</item>
+        <item name="colorAccent">@color/accent_material_light</item>
+    </style>
+
+    <style name="AppTheme.Light.Toolbar" parent="ThemeOverlay.AppCompat.ActionBar" />
+
+    <!-- Material.Light.DarkActionBar (Blue Gray) -->
+    <style name="AppTheme.Light.DarkActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#37474F</item>
+        <item name="colorPrimaryDark">#263238</item>
+        <item name="colorAccent">@color/accent_material_light</item>
+    </style>
+
+    <style name="AppTheme.Light.DarkActionBar.Toolbar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@color/abc_primary_text_material_dark</item>
+        <item name="android:textColorSecondary">@color/abc_primary_text_material_dark</item>
+        <item name="actionMenuTextColor">@color/abc_primary_text_material_dark</item>
+    </style>
+
+    <!-- AppTheme -->
+    <style name="AppTheme" parent="AppTheme.Light.DarkActionBar" />
+
+    <style name="AppTheme.Toolbar" parent="AppTheme.Light.DarkActionBar.Toolbar" />
+
+    <style name="AppTheme.Popup" parent="Theme.AppCompat" />
+</resources>
