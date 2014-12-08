@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
     <item
-        android:title="Nothing"
+        android:id="@+id/search_menu_item"
+        android:title="Search"
         app:showAsAction="ifRoom|withText" />
     <item
-        android:id="@+id/toolbar_menu_item"
-        android:title="Try Toolbar"
+        android:id="@+id/settings_menu_item"
+        android:title="Settings"
         app:showAsAction="never" />
 </menu>

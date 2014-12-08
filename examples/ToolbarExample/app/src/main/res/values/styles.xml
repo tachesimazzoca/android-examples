@@ -1,32 +1,34 @@
 <resources>
-
     <!-- See more: http://www.google.com/design/spec/style/color.html -->
 
     <!-- Material.Dark (Blue Gray) -->
-    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme.NoActionBar.Dark" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">#37474F</item>
         <item name="colorPrimaryDark">#263238</item>
         <item name="colorAccent">@color/accent_material_dark</item>
     </style>
 
     <!-- Material.Light (Blue Gray) -->
-    <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.NoActionBar.Light" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#78909C</item>
         <item name="colorPrimaryDark">#546E7A</item>
         <item name="colorAccent">@color/accent_material_light</item>
     </style>
 
     <!-- Material.Light.DarkActionBar (Blue Gray) -->
-    <style name="AppTheme.Light.DarkActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.NoActionBar.Light.DarkActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#37474F</item>
         <item name="colorPrimaryDark">#263238</item>
         <item name="colorAccent">@color/accent_material_light</item>
     </style>
 
     <!-- AppTheme -->
-    <style name="AppTheme" parent="AppTheme.Light.DarkActionBar" />
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#37474F</item>
+        <item name="colorPrimaryDark">#263238</item>
+        <item name="colorAccent">@color/accent_material_light</item>
+    </style>
 
-    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.Popup" parent="Theme.AppCompat.Light" />
+    <!-- AppTheme.NoActionBar -->
+    <style name="AppTheme.NoActionBar" parent="AppTheme.NoActionBar.Light.DarkActionBar" />
 </resources>
