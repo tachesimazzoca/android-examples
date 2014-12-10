@@ -1,11 +1,11 @@
 package com.github.tachesimazzoca.android.example.lifecycle;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends Activity {
     private static final String TAG = (new Throwable().getStackTrace()[0].getClassName());
