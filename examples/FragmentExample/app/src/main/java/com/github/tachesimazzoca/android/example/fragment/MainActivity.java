@@ -53,14 +53,14 @@ public class MainActivity extends Activity implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-        case R.id.action_one_pane:
-            startActivity(new Intent(this, OnePaneActivity.class));
-            return true;
-        case R.id.action_two_pane:
-            startActivity(new Intent(this, TwoPaneActivity.class));
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
+            case R.id.action_one_pane:
+                startActivity(new Intent(this, OnePaneActivity.class));
+                return true;
+            case R.id.action_two_pane:
+                startActivity(new Intent(this, TwoPaneActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
