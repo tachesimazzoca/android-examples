@@ -12,7 +12,9 @@ public class MainActivity extends ActionBarActivity {
     private Class<?>[] MENU_ACTIVITIES = {
             SettingsActivity.class,
             ExplorerActivity.class,
-            MemoActivity.class
+            MemoActivity.class,
+            TodoActivity.class,
+            CacheActivity.class
     };
 
     @Override
