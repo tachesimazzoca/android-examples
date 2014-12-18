@@ -1,0 +1,24 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+    <header
+        android:fragment="com.github.tachesimazzoca.android.example.preferences.SimplePreferenceFragment"
+        android:title="General">
+        <extra
+            android:name="resource"
+            android:value="prefs_settings_general" />
+    </header>
+    <header
+        android:fragment="com.github.tachesimazzoca.android.example.preferences.AccountPreferenceFragment"
+        android:title="Account">
+    </header>
+    <header
+        android:fragment="com.github.tachesimazzoca.android.example.preferences.NotificationsPreferenceFragment"
+        android:title="Notifications">
+    </header>
+    <header
+        android:fragment="com.github.tachesimazzoca.android.example.preferences.SimplePreferenceFragment"
+        android:title="Sharing">
+        <extra
+            android:name="resource"
+            android:value="prefs_settings_sharing" />
+    </header>
+</preference-headers>

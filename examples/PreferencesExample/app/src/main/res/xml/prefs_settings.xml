@@ -1,0 +1,49 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:persistent="false"
+        android:title="General">
+        <CheckBoxPreference
+            android:key="pref_key_general_enabled"
+            android:title="Enabled" />
+        <SwitchPreference
+            android:key="pref_key_general_switch"
+            android:title="Switch" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:persistent="false"
+        android:title="Nested Preferences">
+        <Preference
+            android:persistent="false"
+            android:title="Account">
+            <intent
+                android:targetClass="com.github.tachesimazzoca.android.example.preferences.SettingsActivity"
+                android:targetPackage="com.github.tachesimazzoca.android.example.preferences">
+                <extra
+                    android:name="category"
+                    android:value="account" />
+            </intent>
+        </Preference>
+        <Preference
+            android:persistent="false"
+            android:title="Notifications">
+            <intent
+                android:targetClass="com.github.tachesimazzoca.android.example.preferences.SettingsActivity"
+                android:targetPackage="com.github.tachesimazzoca.android.example.preferences">
+                <extra
+                    android:name="category"
+                    android:value="notifications" />
+            </intent>
+        </Preference>
+        <Preference
+            android:persistent="false"
+            android:title="Sharing">
+            <intent
+                android:targetClass="com.github.tachesimazzoca.android.example.preferences.SettingsActivity"
+                android:targetPackage="com.github.tachesimazzoca.android.example.preferences">
+                <extra
+                    android:name="category"
+                    android:value="sharing" />
+            </intent>
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

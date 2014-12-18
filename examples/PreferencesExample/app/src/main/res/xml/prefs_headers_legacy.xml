@@ -1,0 +1,46 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:persistent="false"
+        android:title="General">
+        <intent
+            android:targetClass="com.github.tachesimazzoca.android.example.preferences.LegacySettingsActivity"
+            android:targetPackage="com.github.tachesimazzoca.android.example.preferences">
+            <extra
+                android:name="category"
+                android:value="general" />
+        </intent>
+    </Preference>
+    <Preference
+        android:persistent="false"
+        android:title="Account">
+        <intent
+            android:targetClass="com.github.tachesimazzoca.android.example.preferences.LegacySettingsActivity"
+            android:targetPackage="com.github.tachesimazzoca.android.example.preferences">
+            <extra
+                android:name="category"
+                android:value="account" />
+        </intent>
+    </Preference>
+    <Preference
+        android:persistent="false"
+        android:title="Notifications">
+        <intent
+            android:targetClass="com.github.tachesimazzoca.android.example.preferences.LegacySettingsActivity"
+            android:targetPackage="com.github.tachesimazzoca.android.example.preferences">
+            <extra
+                android:name="category"
+                android:value="notifications" />
+        </intent>
+    </Preference>
+    <Preference
+        android:persistent="false"
+        android:title="Sharing">
+        <intent
+            android:targetClass="com.github.tachesimazzoca.android.example.preferences.LegacySettingsActivity"
+            android:targetPackage="com.github.tachesimazzoca.android.example.preferences">
+            <extra
+                android:name="category"
+                android:value="sharing" />
+        </intent>
+    </Preference>
+</PreferenceScreen>

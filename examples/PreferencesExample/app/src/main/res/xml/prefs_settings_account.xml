@@ -1,0 +1,12 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:persistent="false"
+        android:title="Account">
+        <EditTextPreference
+            android:key="pref_key_account_nickname"
+            android:title="Nickname" />
+        <CheckBoxPreference
+            android:key="pref_key_account_allow_something"
+            android:title="Allow Something" />
+    </PreferenceCategory>
+</PreferenceScreen>

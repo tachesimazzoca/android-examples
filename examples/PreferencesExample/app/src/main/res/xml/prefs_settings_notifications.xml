@@ -1,0 +1,19 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:persistent="false"
+        android:title="Notifications">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_key_updates_check"
+            android:summary="Check whether new feeds are available or not."
+            android:title="Check for Updates" />
+        <ListPreference
+            android:defaultValue="0"
+            android:dependency="pref_key_updates_check"
+            android:entries="@array/updates_interval_labels"
+            android:entryValues="@array/updates_interval_values"
+            android:key="pref_key_updates_interval"
+            android:summary="Set the periodical interval to check for updates."
+            android:title="Check Interval" />
+    </PreferenceCategory>
+</PreferenceScreen>

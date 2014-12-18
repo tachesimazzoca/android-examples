@@ -1,0 +1,12 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:persistent="false"
+        android:title="General">
+        <CheckBoxPreference
+            android:key="pref_key_general_enabled"
+            android:title="Enabled" />
+        <CheckBoxPreference
+            android:key="pref_key_general_switch"
+            android:title="Switch" />
+    </PreferenceCategory>
+</PreferenceScreen>
