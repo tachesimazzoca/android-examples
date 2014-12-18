@@ -1,11 +1,13 @@
 package com.github.tachesimazzoca.android.example.storage;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.EditText;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class MemoActivity extends ActionBarActivity {
     private static final String TAG = "MemoActivity";
@@ -18,11 +20,13 @@ public class MemoActivity extends ActionBarActivity {
         setContentView(R.layout.activity_memo);
 
         File f = getMemoAsFile();
-        Log.i(TAG, "Loading " + f.getAbsolutePath());
+        if (null != f) {
+            Log.i(TAG, "Loading " + f.getAbsolutePath());
 
-        mEditText = (EditText) findViewById(R.id.memo_edit_text);
-        if (f.isFile() && f.canWrite()) {
-            mEditText.setText(IOUtils.readString(f));
+            mEditText = (EditText) findViewById(R.id.memo_edit_text);
+            if (f.isFile() && f.canWrite()) {
+                mEditText.setText(IOUtils.readString(f));
+            }
         }
     }
 
@@ -31,15 +35,23 @@ public class MemoActivity extends ActionBarActivity {
         super.onStop();
 
         File f = getMemoAsFile();
-        String str = mEditText.getText().toString();
-        if (null == str || str.isEmpty()) {
-            f.delete();
-        } else {
-            IOUtils.writeString(str, f);
+        if (null != f) {
+            String str = mEditText.getText().toString();
+            if (null == str || str.isEmpty()) {
+                f.delete();
+            } else {
+                IOUtils.writeString(str, f);
+            }
         }
     }
 
     private File getMemoAsFile() {
-        return new File(getExternalFilesDir(null).getAbsolutePath(), FILENAME_MEMO);
+        File dir = getExternalFilesDir(null);
+        if (null != dir) {
+            return new File(dir, FILENAME_MEMO);
+        } else {
+            Log.i(TAG, "The external storage is unavailable.");
+            return null;
+        }
     }
 }
