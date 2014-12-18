@@ -1,0 +1,6 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="pref_key_profile_nickname"
+        android:summary="Set your preferred nickname."
+        android:title="Nickname" />
+</PreferenceScreen>

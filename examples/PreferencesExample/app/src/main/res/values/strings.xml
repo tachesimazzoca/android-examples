@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PreferencesExample</string>
+
+    <string name="pref_settings">pref_settings</string>
+    <string name="pref_settings_profile">pref_settings_profile</string>
+
+</resources>
