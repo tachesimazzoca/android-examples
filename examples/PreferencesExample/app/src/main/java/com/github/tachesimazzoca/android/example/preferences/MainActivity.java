@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 public class MainActivity extends ActionBarActivity {
     private static Class<?>[] MENU_ACTIVITIES = {
-            SettingsActivity.class,
+            MaterialSettingsActivity.class,
             LegacySettingsActivity.class
     };
     private static Class<?>[] MENU_ACTIVITIES_LEGACY = {

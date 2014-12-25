@@ -14,7 +14,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity" />
+        <activity android:name=".MaterialSettingsActivity" />
         <activity
             android:name=".LegacySettingsActivity"
             android:theme="@style/AppTheme.Preferences" />
