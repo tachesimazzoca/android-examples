@@ -2,5 +2,6 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar" />
 
-    <style name="AppTheme.Preferences" parent="android:Theme.Holo" />
+    <style name="AppTheme.Preferences" parent="android:Theme.Black" />
+
 </resources>
