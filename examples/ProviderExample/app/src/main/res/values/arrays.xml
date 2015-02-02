@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="task_labels">
+        <item>NextAction</item>
+        <item>Project</item>
+        <item>Someday</item>
+        <item>WaitingFor</item>
+    </string-array>
+</resources>
