@@ -27,7 +27,7 @@ public class TodoProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         mDatabase = new TodoDatabase(getContext());
-        return false;
+        return (null != mDatabase);
     }
 
     @Override
