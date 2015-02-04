@@ -10,7 +10,9 @@ import android.widget.ListView;
 
 public class MainActivity extends ActionBarActivity {
     private Class<?>[] MENU_ACTIVITIES = {
-            SearchDialogActivity.class
+            SearchWidgetActivity.class,
+            SearchDialogActivity.class,
+            SearchDialogOtherActivity.class
     };
 
     @Override

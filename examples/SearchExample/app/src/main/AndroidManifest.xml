@@ -16,7 +16,7 @@
         </activity>
 
         <activity
-            android:name=".SearchableActivity"
+            android:name=".SearchWidgetActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
@@ -26,10 +26,21 @@
                 android:resource="@xml/searchable" />
         </activity>
 
-        <activity android:name=".SearchDialogActivity">
+        <activity
+            android:name=".SearchDialogActivity"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+
+        <activity android:name=".SearchDialogOtherActivity">
             <meta-data
                 android:name="android.app.default_searchable"
-                android:value=".SearchableActivity" />
+                android:value=".SearchDialogActivity" />
         </activity>
     </application>
 
