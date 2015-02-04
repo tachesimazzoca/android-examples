@@ -6,4 +6,8 @@
         android:icon="@android:drawable/ic_menu_search"
         android:title="Search"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_clear_history"
+        android:title="Clear History"
+        app:showAsAction="never" />
 </menu>

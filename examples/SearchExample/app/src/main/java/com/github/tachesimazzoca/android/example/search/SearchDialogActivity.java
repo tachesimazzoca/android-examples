@@ -3,6 +3,7 @@ package com.github.tachesimazzoca.android.example.search;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.SearchRecentSuggestions;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -34,6 +35,11 @@ public class SearchDialogActivity extends ActionBarActivity {
             case R.id.action_search:
                 onSearchRequested();
                 return true;
+            case R.id.action_clear_history:
+                SearchRecentSuggestions suggestions = new SearchRecentSuggestions(
+                        this, SearchHistoryProvider.AUTHORITY, SearchHistoryProvider.MODE);
+                suggestions.clearHistory();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -56,6 +62,11 @@ public class SearchDialogActivity extends ActionBarActivity {
             }
 
             String q = intent.getStringExtra(SearchManager.QUERY);
+
+            SearchRecentSuggestions suggestions = new SearchRecentSuggestions(
+                    this, SearchHistoryProvider.AUTHORITY, SearchHistoryProvider.MODE);
+            suggestions.saveRecentQuery(q, null);
+
             TextView view = (TextView) findViewById(R.id.search_query);
             view.setText(q);
         }
