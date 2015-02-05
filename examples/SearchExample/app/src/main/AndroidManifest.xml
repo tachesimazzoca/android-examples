@@ -10,6 +10,9 @@
         <provider
             android:name=".SearchHistoryProvider"
             android:authorities="com.github.tachesimazzoca.android.example.search.SearchHistoryProvider" />
+        <provider
+            android:name=".AbbreviationProvider"
+            android:authorities="com.github.tachesimazzoca.android.example.search.AbbreviationProvider" />
 
         <activity android:name=".MainActivity">
             <intent-filter>

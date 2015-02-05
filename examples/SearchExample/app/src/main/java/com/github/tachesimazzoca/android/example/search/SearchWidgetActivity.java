@@ -16,6 +16,8 @@ import android.widget.TextView;
 public class SearchWidgetActivity extends ActionBarActivity {
     private static final String TAG = "SearchWidgetActivity";
 
+    private SearchView mSearchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +31,10 @@ public class SearchWidgetActivity extends ActionBarActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_search_widget, menu);
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(
+        mSearchView = (SearchView) MenuItemCompat.getActionView(
                 menu.findItem(R.id.action_search));
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setIconified(true);
+        mSearchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        mSearchView.setIconified(true);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -59,6 +61,10 @@ public class SearchWidgetActivity extends ActionBarActivity {
             String q = intent.getStringExtra(SearchManager.QUERY);
             TextView view = (TextView) findViewById(R.id.search_query);
             view.setText(q);
+            if (null != mSearchView) {
+                mSearchView.setQuery(q, false);
+                mSearchView.clearFocus();
+            }
         }
     }
 }

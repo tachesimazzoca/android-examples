@@ -3,4 +3,5 @@
     android:hint="@string/searchable_hint"
     android:label="@string/app_name"
     android:searchSuggestAuthority="com.github.tachesimazzoca.android.example.search.SearchHistoryProvider"
-    android:searchSuggestSelection=" ?" />
+    android:searchSuggestSelection=" ?"
+    android:searchSuggestThreshold="1" />
