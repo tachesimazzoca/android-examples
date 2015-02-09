@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_back"
+        android:title="Back"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_forward"
+        android:title="Forward"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_reload"
+        android:title="Reload"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_cancel"
+        android:title="Cancel"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_clear_cache"
+        android:title="Clear Cache"
+        app:showAsAction="never" />
+</menu>
