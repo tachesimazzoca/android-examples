@@ -48,7 +48,7 @@ public class TodoProvider extends ContentProvider {
                         null, null, orderBy);
                 break;
             case URI_TASKS_ID:
-                long id = Long.parseLong(uri.getLastPathSegment());
+                long id = ContentUris.parseId(uri);
                 cursor = mDatabase.getReadableDatabase().query(TodoDatabase.TASK_TABLE,
                         null, TodoContract.Tasks._ID + " = " + id,
                         null, null, null, null);
@@ -89,7 +89,7 @@ public class TodoProvider extends ContentProvider {
                 n = mDatabase.getWritableDatabase().delete(TodoDatabase.TASK_TABLE, null, null);
                 break;
             case URI_TASKS_ID:
-                long id = Long.parseLong(uri.getLastPathSegment());
+                long id = ContentUris.parseId(uri);
                 n = mDatabase.getWritableDatabase().delete(TodoDatabase.TASK_TABLE,
                         TodoContract.Tasks._ID + " = " + id, null);
                 break;
@@ -106,7 +106,7 @@ public class TodoProvider extends ContentProvider {
         if (mUriMatcher.match(uri) != URI_TASKS_ID)
             throw new IllegalArgumentException("Unknown URI: " + uri);
 
-        long id = Long.parseLong(uri.getLastPathSegment());
+        long id = ContentUris.parseId(uri);
         int n = mDatabase.getWritableDatabase().update(
                 TodoDatabase.TASK_TABLE, contentValues,
                 TodoContract.Tasks._ID + " = " + id, null);
