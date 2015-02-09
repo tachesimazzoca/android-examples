@@ -10,18 +10,18 @@ import android.net.Uri;
 import android.util.Log;
 
 public class TodoProvider extends ContentProvider {
-    private static final String TAG = "TodoProvider";
+    private static final String TAG = TodoProvider.class.getSimpleName();
 
     private TodoDatabase mDatabase;
 
-    private static final UriMatcher mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+    private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     private static final int URI_TASKS = 1;
     private static final int URI_TASKS_ID = 2;
 
     static {
-        mUriMatcher.addURI(TodoContract.AUTHORITIES, "tasks", URI_TASKS);
-        mUriMatcher.addURI(TodoContract.AUTHORITIES, "tasks/#", URI_TASKS_ID);
+        sUriMatcher.addURI(TodoContract.AUTHORITY, "tasks", URI_TASKS);
+        sUriMatcher.addURI(TodoContract.AUTHORITY, "tasks/#", URI_TASKS_ID);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class TodoProvider extends ContentProvider {
         Log.i(TAG, "query: " + uri.toString());
 
         Cursor cursor;
-        switch (mUriMatcher.match(uri)) {
+        switch (sUriMatcher.match(uri)) {
             case URI_TASKS:
                 String orderBy;
                 if (null != sortOrder)
@@ -67,7 +67,7 @@ public class TodoProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues contentValues) {
-        if (mUriMatcher.match(uri) != URI_TASKS)
+        if (sUriMatcher.match(uri) != URI_TASKS)
             throw new IllegalArgumentException("Unknown URI: " + uri);
 
         long id = mDatabase.getWritableDatabase().insert(
@@ -84,7 +84,7 @@ public class TodoProvider extends ContentProvider {
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         int n;
-        switch (mUriMatcher.match(uri)) {
+        switch (sUriMatcher.match(uri)) {
             case URI_TASKS:
                 n = mDatabase.getWritableDatabase().delete(TodoDatabase.TASK_TABLE, null, null);
                 break;
@@ -103,7 +103,7 @@ public class TodoProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues contentValues,
                       String selection, String[] selectionArgs) {
-        if (mUriMatcher.match(uri) != URI_TASKS_ID)
+        if (sUriMatcher.match(uri) != URI_TASKS_ID)
             throw new IllegalArgumentException("Unknown URI: " + uri);
 
         long id = ContentUris.parseId(uri);
